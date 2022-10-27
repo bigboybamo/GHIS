@@ -1,0 +1,39 @@
+﻿@model AdventureWorksSales.Core.ProductCategory
+@{
+    ViewBag.Title = "ProductCategory";
+}
+
+<h2>ProductCategory</h2>
+
+
+<div class="wrapper">
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ProductCategoryId</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">RowGuid</th>
+                    <th scope="col">Date Modified</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            @foreach (var item in ViewBag.Category)
+            {
+                <tbody>
+                    <tr>
+                        <th scope="row">@item.ProductCategoryID</th>
+                        <td>@item.Name</td>
+                        <td>@item.rowguid</td>
+                        <td>@item.ModifiedDate</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = @item.ProductCategoryID })
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+        @Html.ActionLink("Create new Category", "Create", "Create")
+    </div>
+</div>
+
